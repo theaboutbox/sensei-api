@@ -5,7 +5,7 @@ require 'json'
 
 Dotenv.load
 
-get '/light' do
+get '/api/light' do
   start_time = 1.minute.ago.to_i * 1000
   end_time = Time.now.to_i * 1000
   metrics = query_metrics(start_time,end_time)
