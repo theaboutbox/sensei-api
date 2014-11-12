@@ -1,13 +1,20 @@
 require 'aws-sdk'
 require 'active_support/core_ext/numeric/time'
+require 'pry'
 
 def light_rating(average)
   case average
-  when 0..1600 then "Full Shade"
-  when 1600..2000 then "Part Shade"
-  when 2000..2400 then "Part Sun"
+  when 0..2200 then "Full Shade"
+  when 2200..2400 then "Part Shade"
+  when 2400..2600 then "Part Sun"
   else "Full Sun"
   end
+end
+
+def temperature_degrees(sensor_value)
+  resistance=(2048-sensor_value).to_f * 10000 / sensor_value
+  temperature=1/(Math.log(resistance/10000)/3975+1/298.15)-273.15
+  temperature
 end
 
 # Start time, end time = epoch milliseconds
