@@ -14,7 +14,7 @@ end
 def temperature_degrees(sensor_value)
   resistance=(2048-sensor_value).to_f * 10000 / sensor_value
   temperature=1/(Math.log(resistance/10000)/3975+1/298.15)-273.15
-  temperature
+  temperature - 32
 end
 
 # Start time, end time = epoch milliseconds
