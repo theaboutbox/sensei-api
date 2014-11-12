@@ -6,7 +6,7 @@ def light_rating(average)
   case average
   when 0..2200 then "Full Shade"
   when 2200..2400 then "Part Shade"
-  when 2400..2600 then "Part Sun"
+  when 2400..2500 then "Part Sun"
   else "Full Sun"
   end
 end
