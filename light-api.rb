@@ -22,6 +22,7 @@ get '/api/light' do
   end
   if temperature_values.size != 0
     temp_avg = temperature_values.reduce(:+).to_f / temperature_values.size
+    temp_avg = 70 if temp_avg < 65
   else
     temp_avg = 72
   end
