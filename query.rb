@@ -17,6 +17,8 @@ def suggestions(rating)
     { plant: "Hosta", image: "http://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Hosta_Bressingham_Blue.JPG/440px-Hosta_Bressingham_Blue.JPG", info: "http://en.wikipedia.org/wiki/Hosta"}
   when "Full Sun" then
     { plant: "Yarrow", image: "http://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Achillea_millefolium_vallee-de-grace-amiens_80_22062007_1.jpg/440px-Achillea_millefolium_vallee-de-grace-amiens_80_22062007_1.jpg", info: "http://en.wikipedia.org/wiki/Achillea_millefolium"}
+  when "Part Shade" then
+    { plant: "Peony", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/PaeoniaSuffruticosa7.jpg/440px-PaeoniaSuffruticosa7.jpg", info: "https://en.wikipedia.org/wiki/Peony"}
   else
     { plant: "Astilbe", image: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Astilbe_arendsii1.jpg", info: "https://en.wikipedia.org/wiki/Astilbe" }
   end
