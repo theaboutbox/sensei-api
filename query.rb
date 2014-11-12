@@ -11,6 +11,17 @@ def light_rating(average)
   end
 end
 
+def suggestions(rating)
+  case rating
+  when "Full Shade" then
+    { plant: "Hosta", image: "http://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Hosta_Bressingham_Blue.JPG/440px-Hosta_Bressingham_Blue.JPG", info: "http://en.wikipedia.org/wiki/Hosta"}
+  when "Full Sun" then
+    { plant: "Yarrow", image: "http://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Achillea_millefolium_vallee-de-grace-amiens_80_22062007_1.jpg/440px-Achillea_millefolium_vallee-de-grace-amiens_80_22062007_1.jpg", info: "http://en.wikipedia.org/wiki/Achillea_millefolium"}
+  else
+    { plant: "Astilbe", image: "https://upload.wikimedia.org/wikipedia/commons/e/e8/Astilbe_arendsii1.jpg", info: "https://en.wikipedia.org/wiki/Astilbe" }
+  end
+end
+
 def temperature_degrees(sensor_value)
   resistance=(2048-sensor_value).to_f * 10000 / sensor_value
   temperature=1/(Math.log(resistance/10000)/3975+1/298.15)-273.15

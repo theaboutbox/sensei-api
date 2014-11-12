@@ -15,8 +15,17 @@ get '/api/light' do
     light_values << m[:sensors][:light]
     temperature_values << m[:sensors][:temp]
   end
-  light_avg = light_values.reduce(:+).to_f / light_values.size
-  temp_avg = temperature_values.reduce(:+).to_f / temperature_values.size
+  if light_values.size != 0
+    light_avg = light_values.reduce(:+).to_f / light_values.size
+  else
+    light_avg = 2401
+  end
+  if temperature_values.size != 0
+    temp_avg = temperature_values.reduce(:+).to_f / temperature_values.size
+  else
+    temp_avg = 72
+  end
+
   {
     start_time: start_time,
     end_time: end_time,
@@ -25,3 +34,12 @@ get '/api/light' do
     light_rating: light_rating(light_avg)
   }.to_json
 end
+
+get '/api/suggest' do
+  light_level = params[:light_level].to_i
+  puts light_level
+  light_rating = light_rating(light_level)
+
+  suggestions(light_rating).to_json
+end
+
